@@ -1,0 +1,378 @@
+/* =========================================================
+   Unia ŁPB – style strony
+   Kolory pochodzą z logo. Zmienisz je na samej górze.
+   ========================================================= */
+
+:root {
+  --red: #cc050c;         /* czerwień z logo */
+  --blue: #0055bc;        /* niebieski z logo */
+  --blue-deep: #0b2d63;   /* ciemny niebieski (stopka) */
+  --ink: #14182e;         /* kolor tekstu */
+  --muted: #4b5170;       /* przygaszony tekst */
+  --paper: #ffffff;       /* tło strony */
+  --mist: #f1f5fc;        /* jasnoniebieskie tło sekcji */
+
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.wrap--narrow {
+  max-width: 40rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.section--red :focus-visible {
+  outline-color: #fff;
+}
+
+/* ---------- Przyciski ---------- */
+
+.button {
+  display: inline-block;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(20, 24, 46, 0.22);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button--light {
+  background: #fff;
+  color: var(--red);
+}
+
+/* ---------- Strona główna (hero) ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 3rem 0;
+  background: var(--paper);
+}
+
+/* Cienki pasek u góry: czerwony i niebieski jak w logo */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--red) 50%, var(--blue) 50%);
+}
+
+.hero__logo {
+  width: 100%;
+  max-width: 46rem;
+}
+
+.hero__slogan {
+  margin-top: 2rem;
+  max-width: 20ch;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.hero__text {
+  margin-top: 1rem;
+  max-width: 30rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+.hero .button {
+  margin-top: 1.75rem;
+}
+
+/* Jedna animacja na start strony: elementy wchodzą po kolei */
+.hero__content > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: wejscie 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.hero__content > :nth-child(1) { animation-delay: 0.05s; }
+.hero__content > :nth-child(2) { animation-delay: 0.2s; }
+.hero__content > :nth-child(3) { animation-delay: 0.35s; }
+.hero__content > :nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes wejscie {
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Sekcje ---------- */
+
+.section {
+  padding: 4.5rem 0;
+  background: var(--paper);
+}
+
+.section--mist {
+  background: var(--mist);
+}
+
+.section--red {
+  background: var(--red);
+  color: #fff;
+}
+
+.section__title {
+  margin-bottom: 1.75rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.body-text {
+  max-width: 36rem;
+  color: var(--muted);
+}
+
+.section--red .body-text {
+  color: #fff;
+}
+
+.section--red .button {
+  margin-top: 1.75rem;
+}
+
+/* ---------- Karty ---------- */
+
+.cards {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+/* Karty na przemian niebieskie i czerwone, jak w logo */
+.card {
+  --kolor: var(--blue);
+  padding: 1.5rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 5px 5px 0 var(--kolor);
+}
+
+.card:nth-child(even) {
+  --kolor: var(--red);
+}
+
+/* Delikatne pojawianie się kart (włącza je script.js) */
+.card.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.card.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: var(--kolor);
+}
+
+.card__icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: #fff;
+}
+
+.card__title {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.card__text {
+  color: var(--muted);
+}
+
+/* Karty kandydatów */
+
+.card--person {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background: var(--kolor);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.person__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.person__class {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.15rem 0.7rem;
+  border-radius: 999px;
+  background: var(--mist);
+  color: var(--blue-deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.status {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+.status--error {
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+
+@media (min-width: 640px) {
+  .cards--two,
+  .cards--three {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .cards--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .section {
+    padding: 6rem 0;
+  }
+}
+
+/* ---------- Stopka ---------- */
+
+.footer {
+  padding: 3rem 0;
+  background: var(--blue-deep);
+  color: #fff;
+}
+
+.footer__name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+
+.footer__slogan {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+/* ---------- Mniej ruchu dla osób, które tego chcą ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero__content > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .card.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .button {
+    transition: none;
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Unia ŁPB – Wybierz przyszłość szkoły</title>
+  <meta name="description" content="Unia ŁPB – grupa uczniów, która chce, żeby nasza szkoła była jeszcze lepszym miejscem. Wybierz przyszłość szkoły – zagłosuj na nas!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,700;8..60,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ STRONA GŁÓWNA ============ -->
+  <header class="hero" id="start">
+    <div class="hero__content wrap">
+      <h1 class="hero__logo">
+        <img src="logo.png" width="1400" height="406" alt="Unia ŁPB – Unia Łasko pabianicko bychlewska">
+      </h1>
+      <p class="hero__slogan">Wybierz przyszłość szkoły – zagłosuj na nas!</p>
+      <p class="hero__text">Chcemy, żeby nasza szkoła była jeszcze lepszym miejscem dla uczniów.</p>
+      <a class="button" href="#postulaty">Poznaj nasze postulaty</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ NASZE POSTULATY ============ -->
+    <!-- Postulaty zmieniasz w pliku postulaty.json, nie tutaj. -->
+    <section class="section section--mist" id="postulaty">
+      <div class="wrap">
+        <h2 class="section__title">Nasze postulaty</h2>
+        <div class="cards cards--two" id="lista-postulatow" aria-live="polite">
+          <p class="status">Wczytuję postulaty…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KIM JESTEŚMY ============ -->
+    <!-- Tekst poniżej możesz swobodnie zmienić. Edytuj tylko to, co jest między <p> i </p>. -->
+    <section class="section" id="kim-jestesmy">
+      <div class="wrap wrap--narrow">
+        <h2 class="section__title">Kim jesteśmy</h2>
+        <p class="lead">
+          Unia ŁPB to grupa uczniów, którym zależy na tym, żeby szkoła była lepszym i przyjemniejszym miejscem.
+        </p>
+        <p class="body-text">
+          Jesteśmy uczniami, tak jak Wy. Znamy szkołę od środka i wiemy, co można w niej poprawić. Chcemy Was słuchać, pomagać i działać razem z Wami.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ NASI KANDYDACI ============ -->
+    <!-- Kandydatów zmieniasz w pliku kandydaci.json, nie tutaj. -->
+    <section class="section section--mist" id="kandydaci">
+      <div class="wrap">
+        <h2 class="section__title">Nasi kandydaci</h2>
+        <div class="cards cards--three" id="lista-kandydatow" aria-live="polite">
+          <p class="status">Wczytuję kandydatów…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DLACZEGO WARTO NA NAS ZAGŁOSOWAĆ? ============ -->
+    <!-- Tekst poniżej możesz swobodnie zmienić. -->
+    <section class="section section--red" id="dlaczego">
+      <div class="wrap wrap--narrow">
+        <h2 class="section__title">Dlaczego warto na nas zagłosować?</h2>
+        <p class="lead">
+          Bo chcemy zrobić coś dobrego dla całej szkoły, a nie tylko dla wybranych osób.
+        </p>
+        <p class="body-text">
+          Przeczytajcie nasze postulaty. Jeśli się Wam spodobają, zagłosujcie na nas.
+        </p>
+        <a class="button button--light" href="#postulaty">Zobacz postulaty jeszcze raz</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ STOPKA ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__name">Unia ŁPB</p>
+      <p class="footer__slogan">Wybierz przyszłość szkoły – zagłosuj na nas!</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
